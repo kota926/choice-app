@@ -1,0 +1,18 @@
+[
+    {
+        "PM":"pre",
+        "year":2018,
+        "q_no":5,
+        "c_no":3,
+        "type":"a",
+        "question":"担保物権に関する次の記述について，判例の趣旨に照らして，正しい場合には○を，誤っている場合には×を選びなさい。",
+        "reference":null,
+        "choice":"質権は，債務者の財産についてのみ設定することができる。",
+        "choice2":null,
+        "answer":2,
+        "e_t1":null,
+        "e_b1":null,
+        "e_t2":null,
+        "e_b2":null
+    }
+]

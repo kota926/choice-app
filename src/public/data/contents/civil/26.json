@@ -1,0 +1,18 @@
+[
+    {
+        "PM":"予備",
+        "year":2019,
+        "q_no":10,
+        "c_no":1,
+        "type":"a",
+        "question":"契約に関する次の記述について，正しい場合には○を，誤っている場合には×を選びなさい。",
+        "reference":null,
+        "choice":"死因贈与は，負担付ですることができない。",
+        "choice2":null,
+        "answer":2,
+        "e_t1":null,
+        "e_b1":null,
+        "e_t2":null,
+        "e_b2":null
+    }
+]
