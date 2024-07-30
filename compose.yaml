@@ -23,7 +23,9 @@ services:
       - ./src:/var/www/html
     
     depends_on:
-      - mysql
+      # - mysql
+        mysql:
+            condition: service_healthy
 
   mysql:
     container_name: mysql
@@ -38,3 +40,9 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     platform: linux/x86_64
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$MYSQL_ROOT_PASSWORD"]
+      interval: 30s
+      timeout: 5s
+      retries: 6
+      start_period: 30s

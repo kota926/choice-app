@@ -28,6 +28,9 @@ ADD docker/web/php.ini /usr/local/etc/php/
 ADD docker/web/000-default.conf /etc/apache2/sites-available/
 RUN a2ensite 000-default
 
+# COPY ./docker/web/start.sh /var/www/html/start.sh
+# RUN chmod 744 ./var/www/html/start.sh
+
 WORKDIR /var/www/html
 
 COPY ./src /var/www/html
@@ -39,7 +42,8 @@ RUN chown www-data storage/ -R \
 ARG MYSQL_PASSWORD \
     MYSQL_ROOT_PASSWORD \
     MYSQL_USER \
-    MYSQL_DATABASE
+    MYSQL_DATABASE \
+    MYSQL_HOST
 
 
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
@@ -50,7 +54,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
     DB_PASSWORD=${MYSQL_PASSWORD} \
     DB_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} \
     DB_CONNECTION=mysql \
-    DB_HOST=mysql \
+    DB_HOST=${MYSQL_HOST} \
     DB_PORT=3306 \
     TZ=Asia/Tokyo
 
@@ -59,3 +63,8 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
 # RUN npm run production
 
 # RUN chmod -R 775 /var/www/laravel_docker/storage/logs
+
+# ENTRYPOINT ["php", "artisan"]
+# CMD ["migrate", "--force"]
+
+CMD ["bash", "start.sh"]
