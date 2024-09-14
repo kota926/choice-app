@@ -114,7 +114,7 @@ import { useForm } from "@inertiajs/react";
             </Button>
             <Typography variant="caption" display="block">
                アカウントを既にもっている方
-              <Link href="/register">ログインへ</Link>
+              <Link href="/login">ログインへ</Link>
             </Typography>
           </Box>
         </Paper>
